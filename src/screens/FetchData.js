@@ -6,21 +6,21 @@ import { Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 import { colors } from '../config';
-import { fetchData } from '../actions';
+import { fetchDataStart } from '../actions';
 import { Container } from '../components';
 
 import type { State } from '../types/State';
 import type { dataType } from '../reducers/FetchDataReducer';
 
 type Props = {
-   fetchData: typeof fetchData;
+   fetchDataStart: typeof fetchDataStart;
    peopleData: dataType;
 }
 
 class FetchData extends Component<Props, void> {
 
   onPress() {
-    this.props.fetchData();
+    this.props.fetchDataStart();
   }
 
   render() {
@@ -56,10 +56,11 @@ class FetchData extends Component<Props, void> {
 }
 
 const mapStateToProps = ({ fetchDataReducer }: State) => {
+  console.log('mapStateToProps', fetchDataReducer);
   const { data, isFetching, error } = fetchDataReducer;
   return {
     peopleData: data, isFetching, error,
   };
 };
 
-export default connect(mapStateToProps, { fetchData })(FetchData);
+export default connect(mapStateToProps, { fetchDataStart })(FetchData);
