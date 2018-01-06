@@ -1,18 +1,16 @@
 // @flow
 
 import React, { Component } from 'react';
-import { StatusBar, Text } from 'react-native';
+import { StatusBar } from 'react-native';
 
-import { Container } from '../components';
+import { Container, Count } from '../components';
 
 class IntoNavi extends Component<{}> {
   render() {
     return (
       <Container>
         <StatusBar barStyle="default" />
-        <Text >
-          111
-        </Text>
+        <Count defaultCount={100} />
       </Container>
     );
   }
