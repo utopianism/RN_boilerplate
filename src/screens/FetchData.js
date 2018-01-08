@@ -15,6 +15,7 @@ import type { dataType } from '../reducers/FetchDataReducer';
 type Props = {
    fetchDataStart: typeof fetchDataStart;
    peopleData: dataType;
+   isFetching: boolean;
 }
 
 class FetchData extends Component<Props, void> {
